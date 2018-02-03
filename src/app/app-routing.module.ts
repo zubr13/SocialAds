@@ -6,6 +6,7 @@ import {ProfileComponent} from "./profile/profile.component";
 import {CreateAdComponent} from './create/create.component';
 import {AuthGuard} from "./shared/guards/auth.guard";
 import {TopicsComponent} from './topics/topics.component';
+import {ModeratorGuard} from './shared/guards/moderator.guard';
 
 const routes: Routes = [
   {
@@ -34,6 +35,7 @@ const routes: Routes = [
       {
         path: 'topics',
         component: TopicsComponent,
+        canActivate: [ModeratorGuard],
       }
     ]
   },
