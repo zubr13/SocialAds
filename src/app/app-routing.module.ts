@@ -5,6 +5,7 @@ import {MainComponent} from "./main/main.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {CreateAdComponent} from './create/create.component';
 import {AuthGuard} from "./shared/guards/auth.guard";
+import {TopicsComponent} from './topics/topics.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
       {
         path: 'create-ad',
         component: CreateAdComponent
+      },
+      {
+        path: 'topics',
+        component: TopicsComponent,
       }
     ]
   },
