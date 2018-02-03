@@ -109,13 +109,10 @@ const config = {
     BrowserAnimationsModule,
     ...MaterialModules,
     AppRoutingModule,
-<<<<<<< HEAD
     FormsModule,
-    ReactiveFormsModule
-=======
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(config),
     SharedModule
->>>>>>> 95674c172784ea2cd032f02f16333f0ff4755e89
   ],
   providers: [
   ],
