@@ -15,9 +15,9 @@ export class AuthService {
     return Observable.fromPromise(<any>this.Auth.auth.signInWithEmailAndPassword(email, password));
   }
 
-  // logout(): Observable<void> {
-  //   return Observable.fromPromise(<any>this.Auth.auth.signOut());
-  // }
+  logout(): Observable<void> {
+    return Observable.fromPromise(<any>this.Auth.auth.signOut());
+  }
 
   authStatus() : Observable<any> {
     return this.Auth.authState.first();
