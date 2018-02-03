@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 export class DatabaseService {
 
   private database = database();
+  public topic;
 
   private subscriptionPathsRefs: Object = {};
 

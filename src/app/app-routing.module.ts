@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {LoginComponent} from "./login/login.component";
 import {MainComponent} from "./main/main.component";
 import {ProfileComponent} from "./profile/profile.component";
+import {CreateAdComponent} from './create/create.component';
 import {AuthGuard} from "./shared/guards/auth.guard";
 
 const routes: Routes = [
@@ -24,6 +25,10 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent
+      },
+      {
+        path: 'create-ad',
+        component: CreateAdComponent
       }
     ]
   },

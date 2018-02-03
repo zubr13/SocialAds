@@ -22,20 +22,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     console.log(firebase.auth().currentUser);
     this.currentUser = this.fbAuth.auth.currentUser;
-    this.fb.init({
-      appId: '115680942582710',
-      version: 'v2.12'
-    }).then( data => {
-      this.getFriends();
-    });
-  }
-
-  getFriends() {
-    this.fb.api(`/me?fields=friends&access_token=${this.authService.facebookToken}`)
-      .then((res: any) => {
-        console.log('Got the users friends', res.friends.summary['total_count']);
-      })
-      .catch((error) => console.log(error));
   }
 
   changeColorScheme(value) {
