@@ -8,7 +8,8 @@
       <mat-sidenav class ='main--sidenav' #snav [mode]='over'
                    [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
         <mat-nav-list>
-          <a mat-list-item class='main--sidenavItem' routerLink="." *ngFor="let nav of navItems">{{nav}}</a>
+          <a mat-list-item class='main--sidenavItem' [routerLink]="nav.link" *ngFor="let nav of navItems">{{nav.name}}</a>
+          <a mat-list-item class='main--sidenavItem' (click)="logout()">Logout</a>
         </mat-nav-list>
       </mat-sidenav>
 
