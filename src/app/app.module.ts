@@ -45,6 +45,12 @@ import {
   MatStepperModule,
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { MainComponent } from './main/main.component';
+import { ProfileComponent } from './profile/profile.component';
+import * as firebase from 'firebase';
+import {AngularFireModule} from "angularfire2";
+import {SharedModule} from "./shared/shared.module";
 
 export const MaterialModules = [
   MatAutocompleteModule,
@@ -80,9 +86,21 @@ export const MaterialModules = [
   MatTooltipModule
 ];
 
+const config = {
+  apiKey: "AIzaSyDFYMCG9U8eX2ertHJMNHkHBAynOr5yEnk",
+  authDomain: "social-ads-1708a.firebaseapp.com",
+  databaseURL: "https://social-ads-1708a.firebaseio.com",
+  projectId: "social-ads-1708a",
+  storageBucket: "social-ads-1708a.appspot.com",
+  messagingSenderId: "571321929761"
+};
+
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+    MainComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,15 +109,15 @@ export const MaterialModules = [
     BrowserAnimationsModule,
     ...MaterialModules,
     AppRoutingModule,
+<<<<<<< HEAD
     FormsModule,
     ReactiveFormsModule
+=======
+    AngularFireModule.initializeApp(config),
+    SharedModule
+>>>>>>> 95674c172784ea2cd032f02f16333f0ff4755e89
   ],
   providers: [
-    DatabaseService,
-    StorageService,
-    FacebookAppService,
-    AuthService,
-    FacebookAuth
   ],
   bootstrap: [AppComponent]
 })
