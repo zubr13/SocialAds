@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs';
-
+import 'rxjs/add/operator/first';
 @Injectable()
 export class AuthService {
 
@@ -15,9 +15,9 @@ export class AuthService {
     return Observable.fromPromise(<any>this.Auth.auth.signInWithEmailAndPassword(email, password));
   }
 
-  logout(): Observable<void> {
-    return Observable.fromPromise(<any>this.Auth.auth.signOut());
-  }
+  // logout(): Observable<void> {
+  //   return Observable.fromPromise(<any>this.Auth.auth.signOut());
+  // }
 
   authStatus() : Observable<any> {
     return this.Auth.authState.first();
