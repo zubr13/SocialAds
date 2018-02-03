@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FacebookService} from 'ng2-facebook-sdk';
 import { AuthService } from '../shared/services/auth.service';
+import { DatabaseService } from '../shared/services/database.service';
 
 @Component({
   selector: 'app-create-ad',
@@ -11,7 +12,9 @@ export class CreateAdComponent implements OnInit {
   friendsCount: number;
   profit: number
 
-  constructor(private fb: FacebookService, private authService: AuthService,) { }
+  constructor(private fb: FacebookService, 
+              private authService: AuthService,
+              private db: DatabaseService) { }
 
   ngOnInit() {
     this.fb.init({
@@ -19,8 +22,8 @@ export class CreateAdComponent implements OnInit {
       version: 'v2.12'
     }).then( data => {
       this.getFriends()
-        .then(() => {
-          this.profit = this.calculateProfit(this.friendsCount, 5);
+        .then(() => { 
+          this.profit = this.calculateProfit(this.friendsCount, this.db.topic.rate);
         });
     });
   }
@@ -41,4 +44,7 @@ export class CreateAdComponent implements OnInit {
     return friendsCount * rate;
   }
 
+  onUpload () {
+    
+  }
 }
