@@ -33,7 +33,7 @@ export class FacebookAppService {
     const subject: ReplaySubject<any> = new ReplaySubject();
     const promise = !this.initialzed ? this.init() : Promise.resolve();
 
-    promise
+    (promise as Promise<any>)
       .then(() => this.fb.api(`/search?${stringify(query)}access_token=${this.auth.facebookToken}`))
       .then(fbEvents => {
         let counter = 0;
