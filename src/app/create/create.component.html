@@ -4,3 +4,4 @@
 </div>
 <label class="upload-block" for="file"><span><i class="material-icons upload-photo">assignment_returned</i><div class="upload-button">Upload photo</div></span></label>
 <input type="file" name="file" id="file" class="inputfile" (change)="onUpload($event)" />
+<img *ngIf="imageUrl" [src]="imageUrl"/>  
