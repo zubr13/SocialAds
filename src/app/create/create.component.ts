@@ -5,6 +5,9 @@ import { DatabaseService } from '../shared/services/database.service';
 import {StorageService} from "../shared/services/storage.service";
 import {FacebookAppService} from "../shared/services/facebook.service";
 
+import * as firebase from 'firebase';
+import 'firebase/auth';
+
 @Component({
   selector: 'app-create-ad',
   templateUrl: './create.component.html',
@@ -17,7 +20,7 @@ export class CreateAdComponent implements OnInit {
 
   constructor(private fb: FacebookService,
               private storage: StorageService,
-              private facebook: FacebookAppService, 
+              private facebook: FacebookAppService,
               private authService: AuthService,
               private db: DatabaseService) { }
 
@@ -27,7 +30,7 @@ export class CreateAdComponent implements OnInit {
       version: 'v2.12'
     }).then( data => {
       this.getFriends()
-        .then(() => { 
+        .then(() => {
           this.profit = this.calculateProfit(this.friendsCount, this.db.topic.rate);
         });
     });
@@ -56,7 +59,17 @@ export class CreateAdComponent implements OnInit {
       .flatMap(data => {
         console.log(data);
         this.imageUrl = data.downloadURL;
-        return this.facebook.init().flatMap(response => this.facebook.postFile(data.downloadURL));
+        return this.facebook.init()
+          .flatMap(response => this.facebook.postFile(data.downloadURL))
+          .map(() => {
+            const pushKey = this.db.database.ref('ad-request').push({
+              topic: this.db.topic,
+              imageUrl: this.imageUrl,
+              isApproved: false,
+              timestamp: firebase.database.ServerValue.TIMESTAMP,
+            }).key;
+            this.db.database.ref(`/users/${firebase.auth().currentUser.uid}/ad-request`).push(pushKey);
+          });
       })
       .subscribe(data => console.log(data));
   }
