@@ -51,6 +51,8 @@ import { ProfileComponent } from './profile/profile.component';
 import * as firebase from 'firebase';
 import {AngularFireModule} from "angularfire2";
 import {SharedModule} from "./shared/shared.module";
+import { UploadComponent } from './upload/upload.component';
+import {ImageUploadModule} from "angular2-image-upload";
 import { CreateAdComponent } from './create/create.component';
 import { TopicsComponent } from './topics/topics.component';
 
@@ -103,8 +105,9 @@ const config = {
     LoginComponent,
     MainComponent,
     ProfileComponent,
+    UploadComponent,
     CreateAdComponent,
-    TopicsComponent,
+    TopicsComponent
   ],
   imports: [
     BrowserModule,
@@ -116,7 +119,8 @@ const config = {
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(config),
-    SharedModule
+    SharedModule,
+    ImageUploadModule.forRoot()
   ],
   providers: [
   ],

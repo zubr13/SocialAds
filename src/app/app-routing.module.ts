@@ -5,8 +5,9 @@ import {MainComponent} from "./main/main.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {CreateAdComponent} from './create/create.component';
 import {AuthGuard} from "./shared/guards/auth.guard";
+import {UploadComponent} from "./upload/upload.component";
 import {TopicsComponent} from './topics/topics.component';
-
+import {ModeratorGuard} from './shared/guards/moderator.guard';
 const routes: Routes = [
   {
     path: '', pathMatch: 'full', redirectTo: 'app',
@@ -28,12 +29,16 @@ const routes: Routes = [
         component: ProfileComponent
       },
       {
+        path: 'upload',
+        component: UploadComponent
+      },
+      {
         path: 'create-ad',
         component: CreateAdComponent
       },
       {
         path: 'topics',
-        component: TopicsComponent,
+        component: TopicsComponent
       }
     ]
   },
