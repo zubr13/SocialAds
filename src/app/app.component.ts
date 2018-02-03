@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'app';
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
-  fillerNav = Array(5).fill(0).map((_, i) => `Nav Item ${i + 1}`);
+  navItems = ['Profile', 'Topics',  'My Ads', 'Logout']
 
   constructor (changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
