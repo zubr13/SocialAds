@@ -34,8 +34,7 @@ const routes: Routes = [
       },
       {
         path: 'topics',
-        component: TopicsComponent,
-        canActivate: [ModeratorGuard],
+        component: TopicsComponent
       }
     ]
   },
