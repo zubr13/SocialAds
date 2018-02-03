@@ -10,15 +10,23 @@ import {FacebookAppService} from "./shared/services/facebook.service";
 import {AuthService} from "./shared/services/auth.service";
 import {FacebookAuth} from "./shared/services/authMethods/facebook";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButton, MatButtonModule} from '@angular/material';
+import {MatButton, MatButtonModule, MatCardModule} from '@angular/material';
+import { LoginComponent } from './login/login.component';
+import { MainComponent } from './main/main.component';
+import { ProfileComponent } from './profile/profile.component';
 
 export const MaterialModules = [
-  MatButtonModule
+  MatButtonModule,
+  MatCardModule
+
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+    MainComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
