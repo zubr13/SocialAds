@@ -1,0 +1,14 @@
+.topics-wrapper {
+  padding: 50px;
+}
+
+.topic-wrapper {
+  background-color: #eee;
+  padding: 20px 15px;
+  margin: 10px 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: darken(#eee, 10%);
+  }
+}

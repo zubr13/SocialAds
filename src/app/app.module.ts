@@ -52,6 +52,7 @@ import * as firebase from 'firebase';
 import {AngularFireModule} from "angularfire2";
 import {SharedModule} from "./shared/shared.module";
 import { CreateAdComponent } from './create/create.component';
+import { TopicsComponent } from './topics/topics.component';
 
 export const MaterialModules = [
   MatAutocompleteModule,
@@ -103,6 +104,7 @@ const config = {
     MainComponent,
     ProfileComponent,
     CreateAdComponent,
+    TopicsComponent,
   ],
   imports: [
     BrowserModule,

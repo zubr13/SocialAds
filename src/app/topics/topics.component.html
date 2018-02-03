@@ -1,0 +1,10 @@
+<div class="topics-wrapper">
+
+  <div class="topic-wrapper" *ngFor="let topic of topics" (click)="onTopicClick(topic.name)">
+
+    <span>{{ topic.name }}</span>
+
+  </div>
+
+
+</div>
