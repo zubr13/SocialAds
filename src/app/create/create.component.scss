@@ -1,0 +1,35 @@
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+  }
+
+  .profit-block {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #9E9E9E;
+    margin-bottom: 23px;
+
+    .profit {
+        font-size: 50px;
+        color: #00BCD4;
+        padding-right: 10px;
+    }
+  }
+
+  .upload-block {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+
+    .upload-photo {
+        background: #00BCD4;
+        color: white;
+        font-size: 200px;
+    }
+  }
