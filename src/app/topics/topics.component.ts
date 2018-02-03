@@ -19,6 +19,8 @@ export class TopicsComponent implements OnInit {
 
   topics: Array<Topic>;
 
+  topicsChecked;
+
   constructor(
     private dbService: DatabaseService,
     private router: Router,
@@ -29,10 +31,15 @@ export class TopicsComponent implements OnInit {
     this.dbService.getList('topics')
       .subscribe((topics: Array<Topic>) => {
         this.topics = topics;
+        this.topicsChecked = this.topics.map(t => ({...t, checked: false}));
       });
   }
 
-  onTopicClick(topic: Topic): void {
+  onTopicClick(i: number): void {
+    this.topicsChecked[i].checked = !this.topicsChecked[i].checked;
+  }
+
+  onCreateClick(topic: Topic): void {
     this.dbService.topic = topic;
     this.router.navigate(['/app/create-ad']);
   }
