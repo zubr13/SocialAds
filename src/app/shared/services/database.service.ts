@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class DatabaseService {
 
-  private database = database();
+  public readonly database = database();
   public topic;
 
   private subscriptionPathsRefs: Object = {};
