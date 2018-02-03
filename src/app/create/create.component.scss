@@ -26,10 +26,26 @@
     display: flex;
     flex-direction: column;
     width: fit-content;
+    cursor: pointer;
+
+    span {
+        display: flex;
+        flex-direction: column;
+    }
 
     .upload-photo {
         background: #00BCD4;
         color: white;
         font-size: 200px;
     }
+
+    .upload-button {
+        padding: 10px;
+        background: #eee;
+        text-align: center;
+    }
+  }
+
+  .inputfile {
+      visibility: hidden;
   }
