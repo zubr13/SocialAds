@@ -15,10 +15,7 @@ const routes: Routes = [
     children: [
       {
         path: 'profile',
-        component: ProfileComponent,
-        data: {
-          name: 'My Profile'
-        }
+        component: ProfileComponent
       }
     ]
   },

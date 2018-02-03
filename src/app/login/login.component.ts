@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       this.authService.facebookToken = data.credential.accessToken;
       console.log(data);
       localStorage.setItem('facebookToken', this.authService.facebookToken);
-      this.router.navigate(['/app/profile']);
+      this.router.navigateByUrl('/app/profile');
     });
   }
 }

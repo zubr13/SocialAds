@@ -2,6 +2,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from '../shared/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import {FacebookService} from 'ng2-facebook-sdk';
+import * as firebase from 'firebase';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -19,14 +20,16 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(123);
+    console.log(firebase.auth().currentUser);
     this.currentUser = this.fbAuth.auth.currentUser;
     console.log(this.currentUser);
-    this.fb.init({
-      appId: '115680942582710',
-      version: 'v2.9'
-    }).then( data => {
-      console.log(data);
-    });
+    // this.fb.init({
+    //   appId: '115680942582710',
+    //   version: 'v2.12'
+    // }).then( data => {
+    //   console.log(data);
+    // });
     console.log(this.fbAuth.auth.currentUser, this.currentUser.providerData[0]);
     if (this.currentUser.providerData && this.currentUser.providerData[0].providerId.indexOf('facebook') !== -1) {
       console.log('facebook');

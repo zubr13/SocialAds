@@ -17,7 +17,7 @@ export class FacebookAppService {
 
   init() {
     return this.fb.init({
-      appId: '115680942582710',
+      appId: '1955507991402224',
       version: 'v2.9'
     }).then(data => this.initialzed = true);
   }
