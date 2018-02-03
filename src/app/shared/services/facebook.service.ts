@@ -57,4 +57,8 @@ export class FacebookAppService {
     console.log(fileUrl);
     return Observable.fromPromise(this.fb.api(`/me/feed?access_token=${this.auth.facebookToken}`, 'post', { link: fileUrl, message: 'Test test test'}));
   }
+
+  getPosts(): Observable<any>{
+    return Observable.fromPromise(this.fb.api(`/me/posts`));
+  }
 }

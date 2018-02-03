@@ -15,7 +15,7 @@ export class UploadComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    this.facebook.getPosts().subscribe(data => console.log(data));
   }
 
   onChangeFile(event) {
