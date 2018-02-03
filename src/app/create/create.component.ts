@@ -44,7 +44,7 @@ export class CreateAdComponent implements OnInit {
     return friendsCount * rate;
   }
 
-  onUpload () {
-    
+  onUpload (event) {
+    console.log(event);
   }
 }
