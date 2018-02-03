@@ -2,7 +2,7 @@
     <mat-toolbar color="primary" style="background-color: #008ca9">
       <button class="menu" mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
     </mat-toolbar>
-  
+
     <mat-sidenav-container class="main">
       <mat-sidenav class ='main--sidenav' #snav [mode]='over'
                    [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
@@ -10,9 +10,11 @@
           <a mat-list-item class='main--sidenavItem' routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
         </mat-nav-list>
       </mat-sidenav>
-  
+
       <mat-sidenav-content>
-        <p *ngFor="let content of fillerContent">{{content}}</p>
+
+        <router-outlet></router-outlet>
+
       </mat-sidenav-content>
     </mat-sidenav-container>
   </div>
