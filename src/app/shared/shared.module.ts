@@ -8,6 +8,7 @@ import {FormsModule} from "@angular/forms";
 import {AngularFireAuthModule} from "angularfire2/auth";
 import {CommonModule} from "@angular/common";
 import {NgModule} from "@angular/core";
+import {FacebookService} from "ng2-facebook-sdk";
 @NgModule({
   imports: [
     CommonModule,
@@ -20,7 +21,8 @@ import {NgModule} from "@angular/core";
     FacebookAuth,
     FacebookAppService,
     DatabaseService,
-    AngularFireDatabase
+    AngularFireDatabase,
+    FacebookService
   ]
 })
 export class SharedModule { }

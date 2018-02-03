@@ -10,7 +10,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'profile',
+    path: 'app',
     component: MainComponent,
     children: [
       {
