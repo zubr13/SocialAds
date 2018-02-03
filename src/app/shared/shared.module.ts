@@ -10,6 +10,7 @@ import {CommonModule} from "@angular/common";
 import {NgModule} from "@angular/core";
 import {FacebookService} from "ng2-facebook-sdk";
 import {AuthGuard} from "./guards/auth.guard";
+import {ModeratorGuard} from './guards/moderator.guard';
 @NgModule({
   imports: [
     CommonModule,
@@ -24,7 +25,8 @@ import {AuthGuard} from "./guards/auth.guard";
     DatabaseService,
     AngularFireDatabase,
     FacebookService,
-    AuthGuard
+    AuthGuard,
+    ModeratorGuard,
   ]
 })
 export class SharedModule { }

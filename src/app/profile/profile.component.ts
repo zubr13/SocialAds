@@ -20,30 +20,8 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    // console.log(123);
     console.log(firebase.auth().currentUser);
     this.currentUser = this.fbAuth.auth.currentUser;
-    // console.log(this.currentUser);
-    // // this.fb.init({
-    // //   appId: '115680942582710',
-    // //   version: 'v2.12'
-    // // }).then( data => {
-    // //   console.log(data);
-    // // });
-    // console.log(this.fbAuth.auth.currentUser, this.currentUser.providerData[0]);
-    // if (this.currentUser.providerData && this.currentUser.providerData[0].providerId.indexOf('facebook') !== -1) {
-    //   console.log('facebook');
-    // }
-    // // console.log(this.fb.getAuthResponse().);
-    // this.getFriends();
-  }
-
-  getFriends() {
-    this.fb.api(`/search?q=&type=event&limit=500&access_token=${this.authService.facebookToken}`)
-      .then((res: any) => {
-        console.log('Got the users friends', res);
-      })
-      .catch((error) => console.log(error));
   }
 
   changeColorScheme(value) {
@@ -62,5 +40,4 @@ export class ProfileComponent implements OnInit {
     value.checked ? swapElements(one, two) : swapElements(two, one);
     localStorage.setItem('theme', value.checked);
   }
-
 }

@@ -1,0 +1,15 @@
+<div class="topics-wrapper">
+
+  <div  class="topic" *ngFor="let topic of topics; let i = index;">
+
+    <div class="topic-wrapper" (click)="onTopicClick(i)">
+      <span>{{ topic.name }}</span>
+      <button mat-button (click)="onCreateClick(topic)">Create Ad</button>
+    </div>
+    <div class="description" *ngIf="topicsChecked[i].checked">
+      {{ topic!.description }}
+    </div>
+  </div>
+
+
+</div>

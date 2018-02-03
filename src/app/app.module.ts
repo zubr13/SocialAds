@@ -53,6 +53,8 @@ import {AngularFireModule} from "angularfire2";
 import {SharedModule} from "./shared/shared.module";
 import { UploadComponent } from './upload/upload.component';
 import {ImageUploadModule} from "angular2-image-upload";
+import { CreateAdComponent } from './create/create.component';
+import { TopicsComponent } from './topics/topics.component';
 
 export const MaterialModules = [
   MatAutocompleteModule,
@@ -104,6 +106,8 @@ const config = {
     MainComponent,
     ProfileComponent,
     UploadComponent,
+    CreateAdComponent,
+    TopicsComponent
   ],
   imports: [
     BrowserModule,
