@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {FacebookService} from 'ng2-facebook-sdk';
 import {AuthService} from "./auth.service";
 import {ReplaySubject, Observable} from "rxjs";
-
+import 'rxjs/add/operator/mergeMap';
 @Injectable()
 export class FacebookAppService {
   private initialzed: boolean = false;
@@ -58,7 +58,12 @@ export class FacebookAppService {
     return Observable.fromPromise(this.fb.api(`/me/feed?access_token=${this.auth.facebookToken}`, 'post', { link: fileUrl, message: 'Test test test'}));
   }
 
-  getPosts(): Observable<any>{
-    return Observable.fromPromise(this.fb.api(`/me/posts`));
+  getTotalLikes(): Observable<any>{
+    return this.init()
+      .flatMap(data => Observable.fromPromise(this.fb.api(`/me/posts?access_token=${this.auth.facebookToken}`)))
+      .flatMap(data => {
+        return Observable.forkJoin(data.data.map(post => Observable.fromPromise(this.fb.api(`/${post.id}/likes?summary=true&access_token=${this.auth.facebookToken}`))));
+      })
+      .map(data => data.reduce((acc, item) => acc + item['summary']['total_count'],0));
   }
 }
