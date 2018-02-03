@@ -32,8 +32,9 @@ export class TopicsComponent implements OnInit {
       });
   }
 
-  onTopicClick(name: string): void {
-    this.router.navigate(['/app/create-add', { name }]);
+  onTopicClick(topic: Topic): void {
+    this.dbService.topic = topic;
+    this.router.navigate(['/app/create-ad']);
   }
 
 }
