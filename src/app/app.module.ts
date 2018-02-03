@@ -7,7 +7,9 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButton, MatButtonModule} from '@angular/material';
 
-const M = [MatButtonModule];
+export const MaterialModules = [
+  MatButtonModule
+];
 
 @NgModule({
   declarations: [
@@ -16,7 +18,7 @@ const M = [MatButtonModule];
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ...M,
+    ...MaterialModules,
     AppRoutingModule
   ],
   providers: [],
