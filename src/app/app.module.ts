@@ -51,6 +51,8 @@ import { ProfileComponent } from './profile/profile.component';
 import * as firebase from 'firebase';
 import {AngularFireModule} from "angularfire2";
 import {SharedModule} from "./shared/shared.module";
+import { UploadComponent } from './upload/upload.component';
+import {ImageUploadModule} from "angular2-image-upload";
 
 export const MaterialModules = [
   MatAutocompleteModule,
@@ -101,6 +103,7 @@ const config = {
     LoginComponent,
     MainComponent,
     ProfileComponent,
+    UploadComponent,
   ],
   imports: [
     BrowserModule,
@@ -112,7 +115,8 @@ const config = {
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(config),
-    SharedModule
+    SharedModule,
+    ImageUploadModule.forRoot()
   ],
   providers: [
   ],

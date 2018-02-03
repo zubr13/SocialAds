@@ -4,6 +4,7 @@ import {LoginComponent} from "./login/login.component";
 import {MainComponent} from "./main/main.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {AuthGuard} from "./shared/guards/auth.guard";
+import {UploadComponent} from "./upload/upload.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent
+      },
+      {
+        path: 'upload',
+        component: UploadComponent
       }
     ]
   },

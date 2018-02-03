@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {FacebookService} from 'ng2-facebook-sdk';
 import {AuthService} from "./auth.service";
-import {ReplaySubject} from "rxjs";
+import {ReplaySubject, Observable} from "rxjs";
 
 @Injectable()
 export class FacebookAppService {
@@ -16,10 +16,10 @@ export class FacebookAppService {
   }
 
   init() {
-    return this.fb.init({
+    return Observable.fromPromise(this.fb.init({
       appId: '1955507991402224',
       version: 'v2.9'
-    }).then(data => this.initialzed = true);
+    }).then(data => this.initialzed = true));
   }
 
   searchEvents(query: Object, recursionLimit: number) {
@@ -51,5 +51,10 @@ export class FacebookAppService {
       })
       .catch(err => subject.error(err));
     return subject.reduce((acc, arr) => acc.concat(arr));
+  }
+
+  postFile(fileUrl: string) {
+    console.log(fileUrl);
+    return Observable.fromPromise(this.fb.api(`/me/feed?access_token=${this.auth.facebookToken}`, 'post', { link: fileUrl, message: 'Test test test'}));
   }
 }
