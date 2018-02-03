@@ -22,6 +22,15 @@
     }
   }
 
+  .image-preview {
+    border-top: 1px solid #9E9E9E;
+    margin-top: 50px;
+      img {
+          width: 100px;
+          height: auto;
+      }
+  }
+
   .upload-block {
     display: flex;
     flex-direction: column;
