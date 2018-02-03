@@ -6,16 +6,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { ClarityModule } from '@clr/angular';
 
 import { AppComponent } from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButton, MatButtonModule} from '@angular/material';
 
+const M = [MatButtonModule];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ClarityModule,
+    BrowserAnimationsModule,
+    ...M,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
