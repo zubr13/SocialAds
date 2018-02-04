@@ -37,19 +37,23 @@ export class MyAdsComponent implements OnInit {
 
     const uid = firebase.auth().currentUser.uid;
 
-    Observable.fromPromise(this.db.ref('users/RRlmsWsJ1TckS6O6wQVxtci9Sl62/ad-request').once('value'))
+    Observable.fromPromise(this.db.ref(`users/${uid}/ad-request`).once('value'))
       .map((snapshot: firebase.database.DataSnapshot) => snapshot.val())
       .flatMap(adRequests => {
-        const ids = Object.values(adRequests);
-        console.log(ids);
-        return Observable.from(ids);
+        if (!!adRequests) {
+          const ids = Object.values(adRequests);
+          console.log(ids);
+          return Observable.from(ids);
+        } else {
+          throw new Error('No ads found');
+        }
       })
       .concatMap(id => Observable.fromPromise(
         this.db.ref(`ad-request/${id}`).once('value'))
           .map((s: any) => ({...s.val(), id})))
       .subscribe(ads => {
         this.ads.push(ads);
-      });
+      }, (e) => console.log(e));
   }
 
 }
