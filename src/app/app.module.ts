@@ -55,6 +55,7 @@ import { UploadComponent } from './upload/upload.component';
 import {ImageUploadModule} from "angular2-image-upload";
 import { CreateAdComponent } from './create/create.component';
 import { TopicsComponent } from './topics/topics.component';
+import { MyAdsComponent } from './my-ads/my-ads.component';
 
 export const MaterialModules = [
   MatAutocompleteModule,
@@ -107,7 +108,8 @@ const config = {
     ProfileComponent,
     UploadComponent,
     CreateAdComponent,
-    TopicsComponent
+    TopicsComponent,
+    MyAdsComponent
   ],
   imports: [
     BrowserModule,
