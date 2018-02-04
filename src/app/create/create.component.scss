@@ -12,7 +12,6 @@
     align-items: center;
     font-size: 20px;
     padding: 10px;
-    border-bottom: 1px solid #9E9E9E;
     margin-bottom: 23px;
 
     .profit {
@@ -57,4 +56,18 @@
 
   .inputfile {
       visibility: hidden;
+  }
+
+  input 				{
+    font-size:18px;
+    padding:10px 10px 10px 5px;
+    display:block;
+    width:300px;
+    border:none;
+    border-bottom: 2px solid #00BCD4;
+    margin-bottom: 25px;
+  }
+
+  input:focus {
+      outline: none;
   }
