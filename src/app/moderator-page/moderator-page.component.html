@@ -6,7 +6,7 @@
 
       <img [src]="ad.imageUrl" />
 
-      <span style="margin-left: 10px">{{ ad.topic.name }}</span>
+      <span style="margin-left: 10px; display: block; padding: 10px;">{{ ad.topic.name }}</span>
 
       <div style="margin-left: auto">
         <button mat-raised-button (click)="approve(ad['id'])">Approve</button>
