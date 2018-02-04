@@ -48,7 +48,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { ProfileComponent } from './profile/profile.component';
-import * as firebase from 'firebase';
 import {AngularFireModule} from "angularfire2";
 import {SharedModule} from "./shared/shared.module";
 import { UploadComponent } from './upload/upload.component';
@@ -100,6 +99,9 @@ const config = {
   storageBucket: "social-ads-1708a.appspot.com",
   messagingSenderId: "571321929761"
 };
+
+import * as firebase from 'firebase/app';
+firebase.initializeApp(config);
 
 @NgModule({
   declarations: [
