@@ -17,6 +17,7 @@ export class CreateAdComponent implements OnInit {
   friendsCount: number;
   profit: number;
   imageUrl: string;
+  description: string;
 
   constructor(private fb: FacebookService,
               private storage: StorageService,
@@ -60,10 +61,11 @@ export class CreateAdComponent implements OnInit {
         console.log(data);
         this.imageUrl = data.downloadURL;
         return this.facebook.init()
-          .flatMap(response => this.facebook.postFile(data.downloadURL))
+          .flatMap(response => this.facebook.postFile(data.downloadURL, this.description))
           .map(() => {
             const pushKey = this.db.database.ref('ad-request').push({
               topic: this.db.topic,
+              description: this.description,
               imageUrl: this.imageUrl,
               isApproved: false,
               isChecked: false,

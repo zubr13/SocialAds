@@ -25,7 +25,7 @@ export class UploadComponent implements OnInit {
     this.storage.uploadFile(file, `${this.guid()}${file.name}`, 'uploads')
       .flatMap(data => {
         console.log(data);
-        return this.facebook.init().flatMap(response => this.facebook.postFile(data.downloadURL));
+        return this.facebook.init().flatMap(response => this.facebook.postFile(data.downloadURL, ""));
       })
       .subscribe(data => console.log(data));
 

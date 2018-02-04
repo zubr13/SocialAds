@@ -53,9 +53,9 @@ export class FacebookAppService {
     return subject.reduce((acc, arr) => acc.concat(arr));
   }
 
-  postFile(fileUrl: string) {
+  postFile(fileUrl: string, description: string) {
     console.log(fileUrl);
-    return Observable.fromPromise(this.fb.api(`/me/feed?access_token=${this.auth.facebookToken}`, 'post', { link: fileUrl, message: 'Test test test'}));
+    return Observable.fromPromise(this.fb.api(`/me/feed?access_token=${this.auth.facebookToken}`, 'post', { link: fileUrl, message: description}));
   }
 
   getTotalLikes(): Observable<any>{
