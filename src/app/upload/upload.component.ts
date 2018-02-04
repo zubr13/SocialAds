@@ -15,6 +15,7 @@ export class UploadComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.facebook.getTotalLikes().subscribe(data => console.log(data));
 
   }
 
