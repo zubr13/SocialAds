@@ -9,6 +9,7 @@ import {UploadComponent} from "./upload/upload.component";
 import {TopicsComponent} from './topics/topics.component';
 import {ModeratorGuard} from './shared/guards/moderator.guard';
 import {MyAdsComponent} from './my-ads/my-ads.component';
+import {ModeratorPageComponent} from './moderator-page/moderator-page.component';
 const routes: Routes = [
   {
     path: '', pathMatch: 'full', redirectTo: 'app',
@@ -44,6 +45,11 @@ const routes: Routes = [
       {
         path: 'ads',
         component: MyAdsComponent,
+      },
+      {
+        path: 'moderator-page',
+        component: ModeratorPageComponent,
+        canActivate: [ModeratorGuard],
       }
     ]
   },

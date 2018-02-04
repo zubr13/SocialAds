@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, NgZone} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
-import {AuthService} from './shared/services/auth.service';
+import {AppUser, AuthService} from './shared/services/auth.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -18,6 +18,8 @@ export class AppComponent {
     { name: 'My Ads', link: '/app/ads' },
   ];
 
+  isModerator = false;
+
   constructor (changeDetectorRef: ChangeDetectorRef,
                media: MediaMatcher,
                private router: Router,
@@ -25,7 +27,20 @@ export class AppComponent {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+
+    this.authService.user
+      .take(1)
+      .subscribe((user: AppUser) => {
+        if (!user) {
+          this.isModerator = false;
+        } else if (user && user.roles && user.roles.moderator) {
+          this.isModerator = true;
+        } else {
+          this.isModerator = false;
+        }
+      });
   }
+
 
   logout(): void {
     this.authService.logout()
