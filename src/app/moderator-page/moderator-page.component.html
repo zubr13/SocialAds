@@ -1,0 +1,23 @@
+<div class="ads-wrapper">
+
+  <div class="ad" *ngFor="let ad of ads">
+
+    <div class="ad-wrapper">
+
+      <img [src]="ad.imageUrl" />
+
+      <span style="margin-left: 10px">{{ ad.topic.name }}</span>
+
+      <div style="margin-left: auto">
+        <button mat-raised-button (click)="approve(ad['id'])">Approve</button>
+        <button mat-raised-button (click)="decline(ad['id'])">Decline</button>
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+

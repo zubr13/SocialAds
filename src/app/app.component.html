@@ -8,6 +8,7 @@
                    [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
         <mat-nav-list>
           <div mat-list-item class='main--sidenavItem' [routerLink]="nav.link" *ngFor="let nav of navItems">{{nav.name}}</div>
+          <div mat-list-item class='main--sidenavItem' *ngIf="isModerator" routerLink="/app/moderator-page">Moderator</div>
           <div mat-list-item class='main--sidenavItem' (click)="logout()">Logout</div>
         </mat-nav-list>
       </mat-sidenav>

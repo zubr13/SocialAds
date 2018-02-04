@@ -48,7 +48,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { ProfileComponent } from './profile/profile.component';
-import * as firebase from 'firebase';
 import {AngularFireModule} from "angularfire2";
 import {SharedModule} from "./shared/shared.module";
 import { UploadComponent } from './upload/upload.component';
@@ -56,6 +55,7 @@ import {ImageUploadModule} from "angular2-image-upload";
 import { CreateAdComponent } from './create/create.component';
 import { TopicsComponent } from './topics/topics.component';
 import { MyAdsComponent } from './my-ads/my-ads.component';
+import { ModeratorPageComponent } from './moderator-page/moderator-page.component';
 
 export const MaterialModules = [
   MatAutocompleteModule,
@@ -100,6 +100,9 @@ const config = {
   messagingSenderId: "571321929761"
 };
 
+import * as firebase from 'firebase/app';
+firebase.initializeApp(config);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -109,7 +112,8 @@ const config = {
     UploadComponent,
     CreateAdComponent,
     TopicsComponent,
-    MyAdsComponent
+    MyAdsComponent,
+    ModeratorPageComponent
   ],
   imports: [
     BrowserModule,

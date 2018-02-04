@@ -1,0 +1,29 @@
+.ads-wrapper {
+  padding: 50px;
+}
+
+.ad {
+  margin-bottom: 10px;
+}
+
+.ad-wrapper {
+  background-color: #eee;
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  button {
+    margin-left: auto;
+  }
+
+  &:hover {
+    background-color: darken(#f9f9f9, 1%);
+  }
+}
+
+.description {
+  background-color: #f7f7f7;
+  padding: 20px 15px;
+}
+
