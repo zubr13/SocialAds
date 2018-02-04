@@ -6,9 +6,9 @@
 
       <img [src]="ad.imageUrl" />
 
-      <span style="margin-left: 10px">{{ ad.topic.name }}</span>
+      <span style="display: block; padding: 10px">{{ ad.topic.name }}</span>
 
-      <span style="margin-left: auto">{{ ad.isChecked ? (ad.isApproved ? 'Approved' : 'Declined') : 'Pending'}}</span>
+      <span style="padding: 10px">{{ ad.isChecked ? (ad.isApproved ? 'Approved' : 'Declined') : 'Pending'}}</span>
     </div>
 
 
