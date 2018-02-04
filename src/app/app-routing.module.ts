@@ -8,6 +8,7 @@ import {AuthGuard} from "./shared/guards/auth.guard";
 import {UploadComponent} from "./upload/upload.component";
 import {TopicsComponent} from './topics/topics.component';
 import {ModeratorGuard} from './shared/guards/moderator.guard';
+import {MyAdsComponent} from './my-ads/my-ads.component';
 const routes: Routes = [
   {
     path: '', pathMatch: 'full', redirectTo: 'app',
@@ -39,6 +40,10 @@ const routes: Routes = [
       {
         path: 'topics',
         component: TopicsComponent
+      },
+      {
+        path: 'ads',
+        component: MyAdsComponent,
       }
     ]
   },

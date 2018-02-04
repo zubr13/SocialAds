@@ -66,6 +66,7 @@ export class CreateAdComponent implements OnInit {
               topic: this.db.topic,
               imageUrl: this.imageUrl,
               isApproved: false,
+              isChecked: false,
               timestamp: firebase.database.ServerValue.TIMESTAMP,
             }).key;
             this.db.database.ref(`/users/${firebase.auth().currentUser.uid}/ad-request`).push(pushKey);
